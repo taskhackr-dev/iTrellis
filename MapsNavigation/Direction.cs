@@ -1,6 +1,10 @@
 ﻿using System;
+
 namespace MapsNavigation
 {
+    /// <summary>
+    /// Represents a direction to move, either left or right by a specific number of blocks.
+    /// </summary>
     public struct Direction
     {
         public LeftOrRight Move { get; }
@@ -12,6 +16,10 @@ namespace MapsNavigation
             Blocks = blocks;
         }
 
+        /// <summary>
+        /// Parses direction.  Where the first character
+        /// is L for left or R for right followed by the distance to move.
+        /// </summary>
         public static Direction Parse(string dir)
         {
             dir = dir.Replace(" ", "");

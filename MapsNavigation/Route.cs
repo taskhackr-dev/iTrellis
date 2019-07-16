@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace MapsNavigation
 {
-    public class Route
+    /// <summary>
+    /// A sequence of directions.
+    /// </summary>
+    public class Route : IEnumerable<Direction>
     {
         private readonly IEnumerable<Direction> _directions;
 
@@ -31,6 +35,16 @@ namespace MapsNavigation
             }
 
             return Math.Abs(position.X) + Math.Abs(position.Y);
+        }
+
+        public IEnumerator<Direction> GetEnumerator()
+        {
+            return _directions.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return _directions.GetEnumerator();
         }
 
         public static void MoveRight(Position position, int blocks)
@@ -79,6 +93,10 @@ namespace MapsNavigation
             }
         }
 
+        /// <summary>
+        /// Parses directions from CSV string. Where the first character
+        /// is L for left or R for right followed by the distance to move.
+        /// </summary>
         public static Route Parse(string directions)
         {
             return Parse(directions.Split(','));

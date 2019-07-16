@@ -1,5 +1,8 @@
 ﻿namespace MapsNavigation
 {
+    /// <summary>
+    /// A cardinally oriented two-dimensional point.
+    /// </summary>
     public class Position
     {
         public CardinalDirection Facing { get; set; }

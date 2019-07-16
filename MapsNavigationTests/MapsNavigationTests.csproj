@@ -17,5 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RouteTests\" />
+    <Folder Include="DirectionTests\" />
   </ItemGroup>
 </Project>
